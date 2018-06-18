@@ -53,7 +53,6 @@ namespace w.beams.visualization.Models
         public double Qf { get; set; }
         public double Qw { get; set; }
 
-
         public override string ToString()
         {
             return mark;

@@ -73,7 +73,6 @@ namespace w.beams.visualization.ViewModels
             set { SetProperty(ref _pointCollection, value); }
         }
 
-
         public DelegateCommand DrawBeamCommand { get; set; }
         public DelegateCommand DrawColumnCommand { get; set; }
 
@@ -93,6 +92,5 @@ namespace w.beams.visualization.ViewModels
         {
             SelectedBeam?.DrawColumn();
         }
-
     }
 }

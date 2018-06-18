@@ -34,7 +34,7 @@ namespace w.beams.visualization.Views
                 Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(new Uri("/MahApps.Metro;component/Styles/Accents/Blue.xaml", UriKind.Relative)) as ResourceDictionary);
                 Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(new Uri("/MahApps.Metro;component/Styles/Accents/BaseLight.xaml", UriKind.Relative)) as ResourceDictionary);
 
-                   }
+            }
         }
     }
 }

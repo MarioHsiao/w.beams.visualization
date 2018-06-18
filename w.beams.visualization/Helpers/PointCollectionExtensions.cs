@@ -10,7 +10,7 @@ namespace w.beams.visualization.Helpers
         /// <summary>
         /// Flattens and converts an AutoCad Point3dCollection to a WPF-usable System.Windows.Media.PointCollection.
         /// </summary>
-        /// <param name=""></param>
+        /// <param name="acadPtCollection"></param>
         /// <returns></returns>
         public static PointCollection ConvertToWpfPointCollection(this Point3dCollection acadPtCollection)
         {
