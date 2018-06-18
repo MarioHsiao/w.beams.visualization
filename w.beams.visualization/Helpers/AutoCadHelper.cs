@@ -19,8 +19,8 @@ namespace w.beams.visualization.Helpers
 
         private static void OpenDoc()
         {
-            _blockTable = Transaction.GetObject(_activeDocumentDatabase.BlockTableId, OpenMode.ForWrite) as BlockTable;
-            _blockTableRecord = Transaction.GetObject(_blockTable[BlockTableRecord.ModelSpace], OpenMode.ForWrite) as BlockTableRecord;
+            _blockTable = (BlockTable)Transaction.GetObject(_activeDocumentDatabase.BlockTableId, OpenMode.ForWrite);
+            _blockTableRecord = (BlockTableRecord)Transaction.GetObject(_blockTable[BlockTableRecord.ModelSpace], OpenMode.ForWrite);
         }
 
         public static void Do(Action action)

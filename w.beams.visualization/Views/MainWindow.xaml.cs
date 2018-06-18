@@ -24,15 +24,15 @@ namespace w.beams.visualization.Views
                 new Application { ShutdownMode = ShutdownMode.OnMainWindowClose };
 
                 // controls
-                Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(new Uri("/MahApps.Metro;component/Styles/Controls.xaml", UriKind.Relative)) as ResourceDictionary);
+                Application.Current.Resources.MergedDictionaries.Add((ResourceDictionary)Application.LoadComponent(new Uri("/MahApps.Metro;component/Styles/Controls.xaml", UriKind.Relative)));
 
                 // fonts and colors
-                Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(new Uri("/MahApps.Metro;component/Styles/Fonts.xaml", UriKind.Relative)) as ResourceDictionary);
-                Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(new Uri("/MahApps.Metro;component/Styles/Colors.xaml", UriKind.Relative)) as ResourceDictionary);
+                Application.Current.Resources.MergedDictionaries.Add((ResourceDictionary)Application.LoadComponent(new Uri("/MahApps.Metro;component/Styles/Fonts.xaml", UriKind.Relative)));
+                Application.Current.Resources.MergedDictionaries.Add((ResourceDictionary)Application.LoadComponent(new Uri("/MahApps.Metro;component/Styles/Colors.xaml", UriKind.Relative)));
 
                 // themes
-                Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(new Uri("/MahApps.Metro;component/Styles/Accents/Blue.xaml", UriKind.Relative)) as ResourceDictionary);
-                Application.Current.Resources.MergedDictionaries.Add(Application.LoadComponent(new Uri("/MahApps.Metro;component/Styles/Accents/BaseLight.xaml", UriKind.Relative)) as ResourceDictionary);
+                Application.Current.Resources.MergedDictionaries.Add((ResourceDictionary)Application.LoadComponent(new Uri("/MahApps.Metro;component/Styles/Accents/Blue.xaml", UriKind.Relative)));
+                Application.Current.Resources.MergedDictionaries.Add((ResourceDictionary)Application.LoadComponent(new Uri("/MahApps.Metro;component/Styles/Accents/BaseLight.xaml", UriKind.Relative)));
 
             }
         }

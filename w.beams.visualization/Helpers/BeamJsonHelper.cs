@@ -29,6 +29,8 @@ namespace w.beams.visualization.Helpers
                 if (!response.IsSuccessful)
                 {
                     return new ObservableCollection<Beam>();
+
+                    // todo: handle returning blank
                 }
 
                 var json = response.Content;
@@ -46,7 +48,9 @@ namespace w.beams.visualization.Helpers
             catch (Exception ex)
             {
                 MessageBox.Show("An error occured while trying to deserialize json.\n\n" + ex.Message);
-                throw;
+                return new ObservableCollection<Beam>();
+
+                // todo: handle returning blank
             }
         }
     }

@@ -53,11 +53,6 @@ namespace w.beams.visualization.Models
         public double Qf { get; set; }
         public double Qw { get; set; }
 
-        public override string ToString()
-        {
-            return mark;
-        }
-
         /// <summary>
         /// Returns the point collection of a section of a beam.
         /// </summary>
@@ -74,25 +69,37 @@ namespace w.beams.visualization.Models
                 return new Point3dCollection(
                     new[]
                     {
-                        new Point3d(0  , 0     , 0),
-                        new Point3d(bf , 0     , 0),
-                        new Point3d(bf , -tf   , 0),
-                        new Point3d(g  , -tf   , 0),
+                        new Point3d(0  , 0      , 0),
+                        new Point3d(bf , 0      , 0),
+                        new Point3d(bf , -tf    , 0),
+                        new Point3d(g  , -tf    , 0),
                         new Point3d(gD  , -k_det, 0),
                         new Point3d(gD  , -kT   , 0),
                         new Point3d(g  , -dtf   , 0),
-                        new Point3d(bf , -dtf  , 0),
-                        new Point3d(bf , -d    , 0),
-                        new Point3d(0  , -d    , 0),
-                        new Point3d(0  , -dtf  , 0),
-                        new Point3d(gP , -dtf  , 0),
-                        new Point3d(dP , -kT   , 0),
-                        new Point3d(dP , -k_det, 0),
-                        new Point3d(gP , -tf   , 0),
-                        new Point3d(0  , -tf   , 0),
-                        new Point3d(0  , 0     , 0),
+                        new Point3d(bf , -dtf   , 0),
+                        new Point3d(bf , -d     , 0),
+                        new Point3d(0  , -d     , 0),
+                        new Point3d(0  , -dtf   , 0),
+                        new Point3d(gP , -dtf   , 0),
+                        new Point3d(dP , -kT    , 0),
+                        new Point3d(dP , -k_det , 0),
+                        new Point3d(gP , -tf    , 0),
+                        new Point3d(0  , -tf    , 0),
+                        new Point3d(0  , 0      , 0),
                     });
             }
+        }
+        public void DrawColumn()
+        {
+            AutoCadHelper.Do(_drawColumn);
+        }
+        public void DrawBeam()
+        {
+            AutoCadHelper.Do(_drawBeam);
+        }
+        public override string ToString()
+        {
+            return mark;
         }
 
         private Region Region
@@ -116,11 +123,6 @@ namespace w.beams.visualization.Models
             AutoCadHelper.AppendAndAddToTransaction(solidColumn);
         }
 
-        public void DrawColumn()
-        {
-            AutoCadHelper.Do(_drawColumn);
-        }
-
         private void _drawBeam()
         {
             const double angle = (Math.PI / 2);
@@ -132,15 +134,6 @@ namespace w.beams.visualization.Models
             solidBeam.TransformBy(Matrix3d.Rotation(angle, Vector3d.XAxis, Point3d.Origin));
             AutoCadHelper.AppendAndAddToTransaction(solidBeam);
         }
-        public void DrawBeam()
-        {
-            AutoCadHelper.Do(_drawBeam);
-        }
-    }
 
-    public interface IDrawBeam
-    {
-        void DrawColumn();
-        void DrawBeam();
     }
 }
