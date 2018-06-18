@@ -8,7 +8,8 @@ namespace w.beams.visualization.Models
 {
     public class Beam : IDrawBeam
     {
-        // Naming conventions from AISC Steel Construction Manual
+        // Naming conventions from AISC Steel Construction Manual 13
+        // Scraped from https://www.engineersedge.com/materials/aisc_structural_shapes/aisc_structural_shapes_viewer.htm
         public string mark { get; set; }
         public double A { get; set; }
         public double d { get; set; }

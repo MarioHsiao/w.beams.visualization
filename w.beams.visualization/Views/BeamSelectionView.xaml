@@ -7,7 +7,76 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d"
              d:DesignHeight="900"
-             d:DesignWidth="1080">
+             d:DesignWidth="1080"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--<ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                --><!-- Accent and AppTheme setting --><!--
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+
+                --><!-- Material Design --><!--
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Orange.xaml" />
+                --><!-- Material Design: MahApps Compatibility --><!--
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.MahApps;component/Themes/MaterialDesignTheme.MahApps.Fonts.xaml" />-->
+
+            </ResourceDictionary.MergedDictionaries>
+            <!--<SolidColorBrush x:Key="HighlightBrush"
+                             Color="{DynamicResource Primary700}" />
+            <SolidColorBrush x:Key="AccentBaseColorBrush"
+                             Color="{DynamicResource Primary600}" />
+            <SolidColorBrush x:Key="AccentColorBrush"
+                             Color="{DynamicResource Primary500}" />
+            <SolidColorBrush x:Key="AccentColorBrush2"
+                             Color="{DynamicResource Primary400}" />
+            <SolidColorBrush x:Key="AccentColorBrush3"
+                             Color="{DynamicResource Primary300}" />
+            <SolidColorBrush x:Key="AccentColorBrush4"
+                             Color="{DynamicResource Primary200}" />
+            <SolidColorBrush x:Key="WindowTitleColorBrush"
+                             Color="{DynamicResource Primary700}" />
+            <SolidColorBrush x:Key="AccentSelectedColorBrush"
+                             Color="{DynamicResource Primary500Foreground}" />
+            <LinearGradientBrush x:Key="ProgressBrush"
+                                 EndPoint="0.001,0.5"
+                                 StartPoint="1.002,0.5">
+                <GradientStop Color="{DynamicResource Primary700}"
+                              Offset="0" />
+                <GradientStop Color="{DynamicResource Primary300}"
+                              Offset="1" />
+            </LinearGradientBrush>
+            <SolidColorBrush x:Key="CheckmarkFill"
+                             Color="{DynamicResource Primary500}" />
+            <SolidColorBrush x:Key="RightArrowFill"
+                             Color="{DynamicResource Primary500}" />
+            <SolidColorBrush x:Key="IdealForegroundColorBrush"
+                             Color="{DynamicResource Primary500Foreground}" />
+            <SolidColorBrush x:Key="IdealForegroundDisabledBrush"
+                             Color="{DynamicResource Primary500}"
+                             Opacity="0.4" />
+            <SolidColorBrush x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.OnSwitchBrush.Win10"
+                             Color="{DynamicResource Primary500}" />
+            <SolidColorBrush x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.OnSwitchMouseOverBrush.Win10"
+                             Color="{DynamicResource Primary400}" />
+            <SolidColorBrush x:Key="MahApps.Metro.Brushes.ToggleSwitchButton.ThumbIndicatorCheckedBrush.Win10"
+                             Color="{DynamicResource Primary500Foreground}" />-->
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="18*" />
@@ -21,27 +90,31 @@
         </Grid.ColumnDefinitions>
         <ListView x:Name="BeamListView"
                   Grid.RowSpan="3"
-                  ItemsSource="{Binding BeamCollection, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                  ItemsSource="{Binding BeamCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   Margin="10" />
-
-        <DataGrid x:Name="BeamInfoDataGrid"
-                  AutoGenerateColumns="True"
-                  EnableRowVirtualization="True"
+        <DataGrid Style="{StaticResource AzureDataGrid}"
+                  Background="{DynamicResource MaterialDesignCardBackground}"
+                  Foreground="{DynamicResource MaterialDesignBodyLight}"
+                  RowBackground="{DynamicResource MaterialDesignSelection}"
+                  x:Name="BeamInfoDataGrid"
                   Grid.Column="1"
                   Grid.ColumnSpan="2"
                   Grid.Row="0"
+                  AutoGenerateColumns="True"
                   IsReadOnly="True"
-                  ItemsSource="{Binding ElementName=BeamListView, Path=SelectedItems}"
+                  ItemsSource="{Binding ElementName=BeamListView, Path=SelectedItems, Mode=OneWay}"
                   SelectedItem="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.SelectedBeam}"
                   SelectionMode="Single">
         </DataGrid>
-        <Button Content="Draw as Beam"
+        <Button Content="Draw As Beam"
+                Style="{DynamicResource MaterialDesignRaisedLightButton}"
                 Command="{Binding DrawBeamCommand}"
                 Grid.Column="1"
                 Grid.Row="2"
                 Height="Auto"
                 Margin="10,5,10,10" />
-        <Button Content="Draw as Column"
+        <Button Content="Draw As Column"
+                Style="{DynamicResource MaterialDesignRaisedLightButton}"
                 Command="{Binding DrawColumnCommand}"
                 Grid.Column="2"
                 Grid.Row="2"
@@ -65,7 +138,7 @@
                           ClipToBounds="True"
                           Points="{Binding PointCollection, UpdateSourceTrigger=PropertyChanged}"
                           Stretch="Uniform"
-                          Stroke="Black"
+                          Stroke="White"
                           StrokeThickness=".1" />
             </Viewbox>
         </Grid>
