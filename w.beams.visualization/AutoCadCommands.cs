@@ -9,8 +9,8 @@ namespace w.beams.visualization
         [CommandMethod("createBeam")]
         public void ShowBeamWindow()
         {
-            var bs = new Bootstrapper();
-            bs.Run();
+            var bootstrapper = new Bootstrapper();
+            bootstrapper.Run();
         }
     }
 }

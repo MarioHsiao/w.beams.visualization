@@ -37,14 +37,17 @@ namespace w.beams.visualization.Helpers
                 return collection;
 
                 // From local resource
-                //var json = File.ReadAllText(JsonPath);
-                //return new ObservableCollection<Beam>(JsonConvert.DeserializeObject<Beam[]>(json));
+
+                // var json = File.ReadAllText(JsonPath);
+                // var beamArray = JsonConvert.DeserializeObject<Beam[]>(json);
+                // return new ObservableCollection<Beam>(beamArray);
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occured while trying to deserialize json.\n\n" + ex.Message);
+                throw;
             }
-            return new ObservableCollection<Beam>();
         }
     }
 }

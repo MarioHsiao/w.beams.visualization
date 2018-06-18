@@ -14,13 +14,13 @@ namespace w.beams.visualization.Helpers
         /// <returns></returns>
         public static PointCollection ConvertToWpfPointCollection(this Point3dCollection acadPtCollection)
         {
-            var pointColl = new PointCollection(acadPtCollection.Count);
+            var pointCollection = new PointCollection(acadPtCollection.Count);
             foreach (Point3d point in acadPtCollection)
             {
-                pointColl.Add(new Point(point.X, point.Y));
+                pointCollection.Add(new Point(point.X, point.Y));
             }
 
-            return pointColl;
+            return pointCollection;
         }
     }
 }

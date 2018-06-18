@@ -111,17 +111,10 @@ namespace w.beams.visualization.Models
         }
         private void _drawColumn()
         {
-            try
-            {
-                var solidColumn = new Solid3d();
-                solidColumn.Extrude(Region, d, 0);
+            var solidColumn = new Solid3d();
+            solidColumn.Extrude(Region, d, 0);
 
-                AutoCadHelper.AppendAndAddToTransaction(solidColumn);
-            }
-            catch (Autodesk.AutoCAD.Runtime.Exception)
-            {
-                //
-            }
+            AutoCadHelper.AppendAndAddToTransaction(solidColumn);
         }
 
         public void DrawColumn()
@@ -129,24 +122,16 @@ namespace w.beams.visualization.Models
             AutoCadHelper.Do(_drawColumn);
         }
 
-
         private void _drawBeam()
         {
-            try
-            {
-                const double angle = (Math.PI / 2);
+            const double angle = (Math.PI / 2);
 
-                var solidBeam = new Solid3d();
-                solidBeam.Extrude(Region, d, 0);
+            var solidBeam = new Solid3d();
+            solidBeam.Extrude(Region, d, 0);
 
-                // Rotate along flange
-                solidBeam.TransformBy(Matrix3d.Rotation(angle, Vector3d.XAxis, Point3d.Origin));
-                AutoCadHelper.AppendAndAddToTransaction(solidBeam);
-            }
-            catch (Autodesk.AutoCAD.Runtime.Exception)
-            {
-                //
-            }
+            // Rotate along flange
+            solidBeam.TransformBy(Matrix3d.Rotation(angle, Vector3d.XAxis, Point3d.Origin));
+            AutoCadHelper.AppendAndAddToTransaction(solidBeam);
         }
         public void DrawBeam()
         {

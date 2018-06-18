@@ -8,7 +8,7 @@ using w.beams.visualization.Models;
 
 namespace w.beams.visualization.ViewModels
 {
-    class BeamSelectionViewModel : BindableBase
+    public class BeamSelectionViewModel : BindableBase
     {
         private StringBuilder _stringBuilder;
         public string Legend

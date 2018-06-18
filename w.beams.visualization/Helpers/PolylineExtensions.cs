@@ -9,21 +9,21 @@ namespace w.beams.visualization.Helpers
         /// <summary>
         ///  Adds vertices to a polyline and adds it to a transaction.
         /// </summary>
-        /// <param name="pline"></param>
-        /// <param name="ptColl"></param>
-        public static void AddVertices(this Polyline3d pline, Point3dCollection ptColl)
+        /// <param name="polyLine"></param>
+        /// <param name="pointCollection"></param>
+        public static void AddVertices(this Polyline3d polyLine, Point3dCollection pointCollection)
         {
-            AutoCadHelper.AppendAndAddToTransaction(pline);
+            AutoCadHelper.AppendAndAddToTransaction(polyLine);
 
-            foreach (Point3d pt3d in ptColl)
+            foreach (Point3d point in pointCollection)
             {
-                var vertex = new PolylineVertex3d(pt3d);
-                pline.AppendVertex(vertex);
+                var vertex = new PolylineVertex3d(point);
+                polyLine.AppendVertex(vertex);
                 AutoCadHelper.AddToTransaction(vertex);
             }
 
             // Erase the polyline before commiting so it's not drawn.
-            pline.Erase();
+            polyLine.Erase();
         }
     }
 }
