@@ -17,7 +17,7 @@ namespace w.beams.visualization
         {
             // fix to Current.MainWindow being null
             Application.Current.MainWindow = Window.GetWindow(this.Shell);
-            Application.Current.MainWindow.Show();
+            if (Application.Current.MainWindow != null) Application.Current.MainWindow.Show();
         }
         public class AcadApp : Application
         {
@@ -25,7 +25,6 @@ namespace w.beams.visualization
         protected override void ConfigureModuleCatalog()
         {
             var moduleCatalog = (ModuleCatalog)ModuleCatalog;
-            //moduleCatalog.AddModule(typeof(YOUR_MODULE));
         }
 
         protected override void ConfigureContainer()

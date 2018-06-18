@@ -71,6 +71,7 @@
     <Compile Include="Helpers\PointCollectionExtensions.cs" />
     <Compile Include="Helpers\PolylineExtensions.cs" />
     <Compile Include="Models\Beam.cs" />
+    <Compile Include="Models\IDrawBeam.cs" />
     <Compile Include="ViewModels\BeamSelectionViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\BeamSelectionView.xaml.cs">
@@ -100,7 +101,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -115,6 +118,9 @@
     </PackageReference>
     <PackageReference Include="MahApps.Metro">
       <Version>1.6.4</Version>
+    </PackageReference>
+    <PackageReference Include="MaterialDesignColors">
+      <Version>1.1.3</Version>
     </PackageReference>
     <PackageReference Include="MaterialDesignThemes">
       <Version>2.4.0.1044</Version>
