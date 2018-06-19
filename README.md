@@ -15,10 +15,9 @@ The shapes are based on the AISC Manual of Steel Construction. JSON data was scr
 
 # Screenshots
 
-![Image of the user interface]()
-
-
-
+![Image of the user interface](https://i.imgur.com/ZWHHase.png)
+![Image of the user interface](https://i.imgur.com/XBrEPMm.png)
+![Image of a beam and column in AutoCAD](https://i.imgur.com/W2p6LSc.png)
 
 # Dependencies
 
