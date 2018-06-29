@@ -53,7 +53,7 @@ namespace w.beams.visualization.Models
         public double Sw { get; set; }
         public double Qf { get; set; }
         public double Qw { get; set; }
-
+        
         /// <summary>
         /// Returns the point collection of a section of a beam.
         /// </summary>
@@ -94,7 +94,7 @@ namespace w.beams.visualization.Models
         {
             AutoCadHelper.Do(_drawColumn);
         }
-        public void DrawBeam()
+        public void DrawBeam(Line line)
         {
             AutoCadHelper.Do(_drawBeam);
         }

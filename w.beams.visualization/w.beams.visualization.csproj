@@ -71,6 +71,7 @@
     <Compile Include="Helpers\PointCollectionExtensions.cs" />
     <Compile Include="Helpers\PolylineExtensions.cs" />
     <Compile Include="Models\Beam.cs" />
+    <Compile Include="Models\BeamEngine.cs" />
     <Compile Include="Models\IDrawBeam.cs" />
     <Compile Include="ViewModels\BeamSelectionViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -136,6 +137,11 @@
       <Version>106.3.1</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\AutoCADCodePack\AutoCADCommands\AutoCADCommands.csproj">
+      <Project>{c5f6c326-952b-43e8-9830-311f190bab11}</Project>
+      <Name>AutoCADCommands</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
